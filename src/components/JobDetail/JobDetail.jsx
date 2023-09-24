@@ -6,16 +6,21 @@ const JobDetail = () => {
     const int = parseInt(id)
     const job = jobs.find(job => job.id === int)
     console.log(job, id);
+    const handleApplyJob = () => {
+        saveJobApplication(idInt);
+        toast('You have applied successfully');
+    }
+
     return (
         <div>
-            <h1>job detail</h1>
+            <h1>job detail of: {job.job_title}</h1>
             <div className="grid gap-4 md:grid-cols-4">
                 <div className="border col-span-3">
-                    Details Comming
+                    <h1>{job.company_name}</h1>
                 </div>
                 <div>
                     <h2>Side Things</h2>
-                    <button className="btn btn-primary w-full">Apply Now</button>
+                    <button onClick={handleApplyJob} className="btn btn-primary w-full">Apply Now</button>
                 </div>
             </div>
         </div>
